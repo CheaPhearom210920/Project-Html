@@ -1,0 +1,41 @@
+@mixin button {
+    padding: 10px;
+    color: $priColor2;
+    background-color: $priColor3;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+}
+
+@mixin flex($display,$col,$content,$iteam) {
+    display: $display;
+    flex-direction: $col;
+    justify-content: $content;
+    align-items: $iteam;
+}
+@mixin flexCenter() {
+    display: flex;
+    align-items: center;
+    justify-content: center;            
+}
+@mixin linkPage {
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+@mixin hover-button {
+    color: $priColor2;
+    background-color: $priColor1;
+    box-shadow: none;
+    transition: 1.5s;
+}
+$respon:(
+    'teblet': 1024px,
+    'moble': 914px,
+) ;
+@mixin responsive($key) {
+    @media screen and (max-width:map-get($respon,$key)) {
+        @content;
+        
+    }
+}

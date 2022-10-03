@@ -1,0 +1,491 @@
+@import 'color';
+@import 'mixin';
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    height: 150vh;
+    background-color: $priColor2;
+    @include flex(flex, column, none, none);
+    font-family: 'Encode Sans Semi Condensed', sans-serif;
+}
+.topbar {
+    flex: 0.7;
+    @include flex(flex, none, center, none);
+    background-color: $mainColor;
+    .topbar-left {
+        flex: 0.3;
+        @include flexCenter;
+    }
+
+    .topbar-right {
+        flex: 1;
+        @include flex(flex, none, flex-end, center);
+        margin-right: 5%;
+
+        i {
+            margin: 10px;
+        }
+    }
+}
+
+.navbar {
+    flex: 0.7;
+    background-color: $priColor1;
+    display: flex;
+    .navbar-left {
+        flex: 0.5;
+        @include flexCenter;
+        @include responsive(moble){
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 15px
+            
+        }
+
+        a {
+            @include linkPage;
+            @include responsive(moble){
+                font-size: 10px;
+            }
+        }
+
+        .nav-a1,
+        .nav-a2,
+        .nav-a3 {
+            @include responsive(moble){
+                width: 50%;
+                display: flex;
+                justify-content: center;
+            }
+            @include button;
+            box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+        }
+
+        .nav-a1:hover,
+        .nav-a2:hover,
+        .nav-a3:hover {
+            @include hover-button;
+        }
+    }
+
+    .navbar-right {
+        flex: 1;
+        @include flex(flex, none, flex-end, center);
+        @include responsive(moble){
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            margin-right: 15px;
+        }
+        a {
+            @include linkPage;
+            @include flexCenter;
+            @include responsive(moble){
+                font-size: 10px;
+                width: 20%;
+                align-items: flex-start;
+                justify-content: center;
+            }
+
+            i {
+                padding: 0 10px;
+            }
+        }
+
+        .log {
+            @include button;
+            box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+        }
+        .log:hover{
+            @include hover-button;
+        }
+        .re {
+            @extend .log;
+            margin-right: 7%;
+            @include responsive(moble){
+                margin-right: 5px;
+            }
+        }
+    }
+
+    img {
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+.main {
+    flex: 4;
+    @include flex(flex, column, center, flex-end);
+    margin-right: 5%;
+
+    .main-search-button {
+        @include flex(flex, column, none, center);
+
+        .main-search {
+            @include flex(flex, none, space-between, center);
+
+            .button-search {
+                box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+                padding: 8px 40px;
+                background-color: $priColor2;
+                border-radius: 10px;
+                @include responsive(moble){
+                    padding: 0;
+                }
+
+
+                i {
+                    font-size: 20px;
+                    color: $priColor3;
+                    padding: 10px;
+                    @include responsive(moble){
+                        padding: 0;
+                        font-size: 15px;
+                    }
+                }
+
+                input {
+                    border: none;
+                    outline: none;
+                    padding: 10px;
+                    width: 80%;
+                }
+            }
+
+            span {
+                @include button;
+                box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+                font-size: 20px;
+                padding: 15px 30px;
+                @include responsive(moble){
+                    font-size: 15px;
+                    padding: 10px;
+                }
+            }
+            span:hover{
+                @include hover-button;
+            }
+        }
+    }
+
+    .main-search-link {
+        @include flexCenter;
+
+        h3 {
+            color: $priColor2;
+            @include responsive(moble){
+                display: none;
+            }
+        }
+
+        a {
+            @include button;
+            box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+            padding: 5px;
+
+            @include linkPage;
+            font-size: 10px;
+            opacity: 0.8;
+        }
+    }
+}
+
+.footer {
+    flex: 3;
+    @include flex(flex, column, none, none);
+    background-color: $priColor2;
+    img{
+        background-color: none;
+    }
+    &-top {
+        flex: 8.5;
+        background-color: $priColor1;
+        display: flex;
+        @include responsive(moble){
+            display: flex;
+            flex-direction: column;       
+        }
+
+        &-a1 {
+            flex: 1;
+        }
+
+        &-a2 {
+            @include responsive(moble){
+                padding: 20px;
+                
+            }
+            flex: 1;
+            @include flex(flex, column, flex-start, flex-start);
+            color: $priColor2;
+
+            h2 {
+                margin: 5% 0 10% 0;
+                color: $mainColor;
+                padding-bottom: 10px;
+                border-bottom: 3px solid $priColor3;
+            }
+        }
+
+        &-a3 {
+            flex: 1;
+        }
+
+        &-a4 {
+            @include responsive(moble){
+                padding: 20px;
+                
+            }
+            flex: 1;
+            @include flex(flex, column, flex-start, flex-start);
+            color: $priColor2;
+
+            .group-icon-pt {
+                display: flex;
+                align-items: center;
+
+                i {
+                    padding: 5px;
+                    font-size: 20px
+                }
+
+            }
+
+            a {
+                @include linkPage;
+                color: $priColor2;
+            }
+
+            h2 {
+                margin: 5% 0 10% 0;
+                color: $mainColor;
+                padding-bottom: 10px;
+                border-bottom: 3px solid $priColor3;
+            }
+
+            .group-icon {
+                @include flexCenter;
+
+                i {
+                    padding: 10px;
+                    border-radius: 50%;
+                    margin: 0 5px 5px 5px;
+                    background-color: $mainColor;
+                }
+            }
+        }
+
+        &-a5 {
+            flex: 1;
+
+        }
+
+        &-a6 {
+            @include responsive(moble){
+                padding: 20px;
+                
+            }
+            flex: 1;
+            @include flex(flex, column, flex-start, flex-start);
+            color: $priColor2;
+
+            h2 {
+                margin: 5% 0 10% 0;
+                color: $mainColor;
+                padding-bottom: 10px;
+                border-bottom: 3px solid $priColor3;
+            }
+        }
+
+        &-a7 {
+            flex: 1;
+        }
+    }
+
+    &-button {
+        flex: 1.5;
+        background-color: $priColor2;
+        @include flexCenter;
+    }
+}
+
+.login-container {
+    flex: 5;
+    display: flex;
+   
+    .form-login {
+        
+        width: 100%;
+        display: flex;
+        background-color: $priColor2;
+
+        &-left {
+            @include responsive(moble){
+                display: none;  
+            }
+            flex: 1;
+            @include flexCenter;
+            img{
+                margin-top: 10%;
+            }
+        }
+
+        &-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            form {
+                @include responsive(moble){
+                    width: 300px;
+                }
+                height: 70%;
+                width: 400px;
+                background-color: $priColor1;
+                margin-top: 10%;
+                border-radius: 10px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+                padding: 50px 35px;
+            }
+
+            form * {
+                color: $priColor2;
+                letter-spacing: 0.5px;
+                outline: none;
+                border: none;
+            }
+
+            form h3 {
+                font-size: 32px;
+                font-weight: 500;
+                line-height: 42px;
+                text-align: center;
+            }
+
+            label {
+                display: block;
+                margin-top: 2%;
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            input {
+                display: block;
+                height: 50px;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.07);
+                border-radius: 3px;
+                padding: 0 10px;
+                margin-top: 2%;
+                font-size: 14px;
+                font-weight: 300;
+            }
+
+            ::placeholder {
+                color: #e5e5e5;
+            }
+
+            button {
+                margin-top: 50px;
+                width: 100%;
+                background-color: $priColor2;
+                color: $priColor1;
+                padding: 15px 0;
+                font-size: 18px;
+                font-weight: 600px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .social {
+                margin-top: 30px;
+                display: flex;
+            }
+
+            .social div {
+                background: red;
+                width: 150px;
+                border-radius: 3px;
+                padding: 5px 10px 10px 5px;
+                background-color: rgba(255, 255, 255, 0.27);
+                color: #eaf0fb;
+                text-align: center;
+            }
+
+            .social div:hover {
+                background-color: rgba(255, 255, 255, 0.47);
+            }
+
+            .social .fb {
+                margin-left: 25px;
+            }
+
+            .social i {
+                margin-right: 4px;
+            }
+
+        }
+    }
+}
+
+//register
+
+.cv-container{
+    @include responsive(moble){
+        justify-content: center;
+        
+    }
+    h2{
+        font-weight: bold;
+        @include button;
+    }
+    @include flexCenter;
+    .header{
+        margin-top: 2%;
+        .list-cv{
+            @include flexCenter;
+            justify-content: flex-start;
+            padding: 5px;
+            h3{
+                margin-right: 20px;
+            }
+
+        }
+        .amm{
+            h2{
+                @include button;
+                width: 7%;
+            }
+        }
+        .cover{
+            margin: 5px;
+        }
+        .accept{
+            // display: flex;
+            @include flexCenter;
+            justify-content: flex-start;
+            .checkbox{
+                margin-right: 100px;
+            }
+        }
+        .btn{
+            display: flex;
+            .btn-right{
+                @include flexCenter;
+                justify-content: flex-end;
+                a{
+                    @include button;
+                    @include linkPage;
+                    color: $priColor1;
+                }
+            }
+            .btn-left{
+                @extend .btn-right;
+            }
+        }
+    }
+}
+

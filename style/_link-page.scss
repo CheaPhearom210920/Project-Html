@@ -1,0 +1,750 @@
+@import 'color';
+@import 'mixin';
+body {
+    height: 200vh;
+    background-color: $mainColor;
+    @include flex(flex, column, none, none);
+    font-family: 'Encode Sans Semi Condensed', sans-serif;
+
+}
+
+.topbar {
+    flex: 0.7;
+    @include flex(flex, none, center, none);
+
+    .topbar-left {
+        flex: 0.3;
+        @include flexCenter;
+    }
+
+    .topbar-right {
+        flex: 1;
+        @include flex(flex, none, flex-end, center);
+        margin-right: 5%;
+
+        i {
+            margin: 10px;
+        }
+    }
+}
+
+.navbar {
+    flex: 0.7;
+    background-color: $priColor1;
+    display: flex;
+    .navbar-left {
+        flex: 0.5;
+        @include flexCenter;
+       
+        @include responsive(teblet){
+            flex-direction: row;
+
+        }
+        @include responsive(moble){
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 15px;
+            
+        }
+       
+
+        a {
+            @include linkPage;
+            @include responsive(moble){
+                font-size: 10px;
+            }
+
+        }
+
+        .nav-a1,
+        .nav-a2,
+        .nav-a3 {
+            @include responsive(moble){
+                width: 50%;
+                display: flex;
+                justify-content: center;
+            }
+            @include button;
+            box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+        }
+
+        .nav-a1:hover,
+        .nav-a2:hover,
+        .nav-a3:hover {
+            @include hover-button;
+        }
+    }
+
+    .navbar-right {
+        flex: 1;
+        @include flex(flex, none, flex-end, center);
+        @include responsive(teblet){
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            
+        }
+        @include responsive(moble){
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            margin-right: 15px;
+        }
+        
+        a {
+            @include linkPage;
+            @include flexCenter;
+            @include responsive(moble){
+                font-size: 10px;
+                width: 20%;
+                align-items: flex-start;
+                justify-content: center;
+            }
+            i {
+                padding: 0 10px;
+            }
+        }
+
+        .log {
+            @include button;
+            box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+        }
+        .log:hover{
+            @include hover-button;
+        }
+        .re {
+            @extend .log;
+            margin-right: 7%;
+            @include responsive(moble){
+                margin-right: 5px;
+            }
+        }
+    }
+
+    img {
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+.main {
+    flex: 4;
+    @include flex(flex, column, center, flex-end);
+    margin-right: 5%;
+
+    .main-search-button {
+        @include flex(flex, column, none, center);
+        .main-search {
+            @include flex(flex, none, space-between, center);
+            .button-search {
+                box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+                padding: 8px 40px;
+                background-color: $priColor2;
+                border-radius: 10px;
+                @include responsive(moble){
+                    padding: 0;
+                }
+
+                i {
+                    font-size: 20px;
+                    color: $priColor3;
+                    padding: 10px;
+                    @include responsive(moble){
+                        padding: 0;
+                        font-size: 15px;
+                    }
+                }
+
+                input {
+                    border: none;
+                    outline: none;
+                    padding: 10px;
+                    width: 80%;
+                }
+            }
+
+            span {
+                @include button;
+                box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+                font-size: 20px;
+                padding: 15px 30px;
+                @include responsive(moble){
+                    font-size: 15px;
+                    padding: 10px;
+                }
+            }
+            span:hover{
+                @include hover-button;
+            }
+        }
+    }
+
+    .main-search-link {
+        @include flexCenter;
+
+        h3 {
+            color: $priColor2;
+            @include responsive(moble){
+                display: none;
+            }
+        }
+
+        a {
+            @include button;
+            box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+            padding: 5px;
+
+            @include linkPage;
+            font-size: 10px;
+            opacity: 0.8;
+        }
+    }
+}
+
+.footer {
+    flex: 3;
+    @include flex(flex, column, none, none);
+    background-color: $mainColor;
+    &-top {
+        flex: 8.5;
+        background-color: $priColor1;
+        display: flex;
+        @include responsive(moble){
+            display: flex;
+            flex-direction: column;       
+        }
+
+        &-a1 {
+            flex: 1;
+            @include responsive(teblet){
+                display: none;
+                
+            }
+        }
+
+        &-a2 {
+            @include responsive(teblet){
+                padding: 20px;
+                
+            }
+            @include responsive(moble){
+                padding: 20px;
+                
+            }
+            flex: 1;
+            @include flex(flex, column, flex-start, flex-start);
+            color: $priColor2;
+
+            h2 {
+                margin: 5% 0 10% 0;
+                color: $mainColor;
+                padding-bottom: 10px;
+                border-bottom: 3px solid $priColor3;
+            }
+        }
+
+        &-a3 {
+            flex: 1;
+            @include responsive(teblet){
+                display: none;
+                
+            }
+        }
+
+        &-a4 {
+            @include responsive(teblet){
+                padding: 20px;
+                
+            }
+            @include responsive(moble){
+                padding: 20px;
+                
+            }
+            flex: 1;
+            @include flex(flex, column, flex-start, flex-start);
+            color: $priColor2;
+
+            .group-icon-pt {
+                display: flex;
+                align-items: center;
+
+                i {
+                    padding: 5px;
+                    font-size: 20px
+                }
+
+            }
+
+            a {
+                @include linkPage;
+                color: $priColor2;
+            }
+
+            h2 {
+                margin: 5% 0 10% 0;
+                color: $mainColor;
+                padding-bottom: 10px;
+                border-bottom: 3px solid $priColor3;
+            }
+
+            .group-icon {
+                @include flexCenter;
+
+                i {
+                    padding: 10px;
+                    border-radius: 50%;
+                    margin: 0 5px 5px 5px;
+                    background-color: $mainColor;
+                }
+            }
+        }
+
+        &-a5 {
+            flex: 1;
+            @include responsive(teblet){
+                display: none;
+                
+            }
+
+        }
+
+        &-a6 {
+            @include responsive(teblet){
+                padding: 20px;
+                
+            }
+            @include responsive(moble){
+                padding: 20px;
+                
+            }
+            flex: 1;
+            @include flex(flex, column, flex-start, flex-start);
+            color: $priColor2;
+
+            h2 {
+                margin: 5% 0 10% 0;
+                color: $mainColor;
+                padding-bottom: 10px;
+                border-bottom: 3px solid $priColor3;
+            }
+        }
+
+        &-a7 {
+            flex: 1;
+            @include responsive(teblet){
+                display: none;
+                
+            }
+        }
+    }
+
+    &-button {
+        flex: 1.5;
+        background-color: $priColor2;
+        @include flexCenter;
+    }
+}
+
+
+
+//container-home-page----------
+//start
+.container {
+    flex: 10;
+    display: flex;
+    background-color: $mainColor;
+    @include responsive(moble){
+        display: flex;
+        flex-direction: column-reverse;        
+    }
+    &-left {
+        flex: 2.5;
+        @include flex(flex, column, none, center);
+
+        .con-left-top {
+            // box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+            color: $priColor1;
+            border: 2px solid $priColor3;
+            border-radius: 5px;
+            margin: 5px;
+            width: 80%;
+            @include flex(flex, none, center, none);
+            background-color: $priColor2;
+
+            h1 {
+                padding: 1.5%;
+                @include responsive(moble){
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .card-job {
+            border-bottom: 4px solid $priColor3;
+            box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+            margin-top: 5px;
+            padding: 10px 5px;
+            border-radius: 5px;
+            width: 80%;
+            background-color: $priColor2;
+            @include flex(flex, none, space-around, center);
+            .logo {
+                // box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+                @include responsive(moble){
+                    width: 20%;
+                    margin-right: 5px;
+                }
+                img{
+                    @include responsive(moble){
+                        width: 100%;
+
+                    }
+                }
+            }
+
+            .job-info {
+                font-weight: bold;
+
+                @include responsive(moble){
+                    font-size: 12px;
+                }
+                .date {
+                    display: flex;
+                    @include responsive(moble){
+                        // flex-direction: column;
+                        display: none;
+                    }
+                    .icon-num {
+                        @include flex(flex, none, none, center);
+                        padding: 0 10px 0 0;
+                        @include responsive(moble){
+                            display: flex;
+                            flex-direction: column;
+                        }
+                        i {
+                            padding: 5px;
+                        }
+                    }
+                }
+            }
+
+            .more-info {
+                @include button;
+                box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+                @include responsive(moble){
+                    padding: 2px;
+                }
+                a {
+                    @include linkPage;
+                    font-weight: normal;
+                    font-size: 18px;
+                    color: $priColor2;
+                    @include responsive(moble){
+                        font-size: 8px;
+
+                    }
+                }
+            }
+            .more-info:hover{
+                background-color: $mainColor;
+                box-shadow: none;
+                transition: 1.5s;
+            }
+        }
+        .card-job:hover{
+            background-color: rgba(255, 255, 255, 0.486);
+            transition: 1s;
+            
+            // box-shadow: $priColor3 0px 0px 0px 2px, $priColor3 0px 4px 6px -1px, $priColor3 0px 1px 0px inset;
+        }
+    }
+
+    &-right {
+        flex: 1.5;
+        @include flex(flex, column, none, flex-start);
+
+        h1 {
+            box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+            color: $priColor1;
+            margin: 1% 10%;
+            border-radius: 5px;
+            width: 66%;
+            background-color: $priColor2;
+            padding: 7% 5%;
+            margin-bottom: 5px;
+            @include responsive(moble){
+                font-size: 20px;
+            }
+        }
+
+        .card-list-job {
+
+            width: 73%;
+            margin-left: 10%;
+
+            .tittle-container {
+                box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+                width: 100%;
+                margin-bottom: 1%;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: $priColor2;
+
+                .list-job {
+                    @include flex(flex, none, space-between, center);
+                    padding: 5px;
+                    margin: 5px;
+                    border-bottom: 2px solid $priColor3;
+
+                    h6 {
+                        padding: 5px;
+                        border-radius: 50%;
+                        background-color: $priColor1;
+                        color: $priColor2;
+                        box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//end
+
+//container-work-page----------
+//start
+.container-work{
+
+    flex: 10;
+    display: flex;
+    background-color: $mainColor;
+    @include responsive(moble){
+        flex-direction: column;
+    }
+    &-left{
+        flex: 1;
+        h1{
+            border-bottom: 3px solid $priColor3;
+            margin-bottom: 1%;
+            margin-top: 2%;
+            color: $priColor2;
+            margin-left: 5%;
+            padding-bottom: 1%;
+            width: 20%;
+            @include flex(flex, none, center, center);
+            @include responsive(moble){
+                font-size: 20px;
+            }
+        }
+        .card1{
+            display: flex;
+            // justify-content: space-between;
+            @include responsive(moble){
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .position{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 0;
+                background-color: $priColor2;
+                width: 45%;
+                margin: 0.1% 2%;
+                @include responsive(moble){
+                    display: flex;
+                    width: 95%;
+                }
+                .group-job{
+                    display: flex;
+                    align-items: center;
+                    h6{
+                        margin-right: 10px;
+                        background-color: $priColor1;
+                        padding: 2px;
+                        border-radius: 50%;
+                        color: $priColor2;
+                    }
+                    h3{
+                        padding: 10px;
+                    }
+                }
+                .date{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .icon-num{
+                        padding: 5px;
+                    }
+                }
+            }
+            .position1{
+                border-right: 2px solid $priColor3;
+                box-shadow: $priColor1 0px 5px 15px;
+            }
+            .position1:hover{
+                border-left: 4px solid $priColor1;
+                border-right: 4px solid $priColor3;
+                opacity: 0.9;
+                border-radius: 5px;
+                box-shadow: $priColor3 0px 5px 15px;
+            }
+        }
+    }
+    &-right{
+        flex: 1;
+        @extend .container-work-left;
+    }
+}
+//end
+//container-company-page----------
+//start
+.container-company{
+    flex: 10;
+    display: flex;
+    background-color: $mainColor;
+    @include responsive(moble){
+        display: flex;
+        flex-direction: column;
+    }
+    &-left{
+        flex: 1;
+        
+        @include flex(flex, column, none, center);
+
+        .con-left-top {
+            @include flexCenter;
+            // box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+            color: $priColor2;
+            border-radius: 5px;  
+            padding: 10px;
+            margin: 5px;
+            width: 90%;
+            // @include flex(flex, none, center, none);
+            background-color: $priColor1;
+            i{
+                font-size: 40px;
+                @include responsive(moble){
+                    font-size: 20px;
+                }
+            }
+            h1{
+                @include responsive(moble){
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .card-job {
+            // box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+            margin-top: 10px;
+            padding: 10px 5px;
+            border-radius: 5px;
+            height: 13%;
+            width: 80%;
+            background-color: $priColor2;
+            @include flex(flex, none, center, flex-start);
+            border-right: 2px solid $priColor3;
+            &-left{
+                flex: 1;
+                // background: $priColor3;
+                display: flex;
+                flex-direction: column;
+                .name-company{
+                    margin-left: 20px;
+                    h3{
+                        color: rgb(133, 84, 179);
+                        padding: 2%;
+                    }
+                    .group-loca{
+                        display: flex;
+                        align-items: center;
+                        a{
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+            &-right{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                margin-left: 5%;
+                .group-num{
+                    display: flex;
+                    padding: 2%;
+                    .number{
+                        display: flex;
+                        align-items: center;
+                        padding: 5%;
+                    }
+                    .ph-num{
+                        p{
+                            font-size: 15px;
+                        }
+                    }
+                }
+                .group-mail{
+                    display: flex;
+                    align-items: center;
+                    i{
+                        padding: 5%;
+                    }
+                    a{
+                        font-size: 13px;
+                        color: $priColor1;
+                        @include responsive(moble){
+                            font-size: 10px;
+                        }
+                    }
+                }
+                .group-loca{
+                    display: flex;
+                    align-items: flex-end;
+                    i{
+                        padding: 5%;
+                    }
+                    a{
+                        font-size: 13px;
+                        color: $priColor1;
+                        @include responsive(moble){
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+            .more-info {
+                @include button;
+                
+                box-shadow: $mainColor 0px 50px 100px -20px, $mainColor 0px 30px 60px -30px, $mainColor 0px -2px 6px 0px inset;
+                a {
+                    @include linkPage;
+                    font-weight: normal;
+                    font-size: 15px;
+                    color: $priColor2;
+                }
+            }
+            .more-info:hover{
+                background-color: $mainColor;
+                box-shadow: none;
+                transition: 1.5s;
+            }
+        }
+        .card-job:hover{
+            color: $priColor1;
+            // box-shadow: $priColor3 0px 0px 0px 2px, $priColor3 0px 4px 6px -1px, $priColor3 0px 1px 0px inset;
+        }
+    }
+
+    &-right{
+        flex: 1;
+        @extend .container-company-left;
+        @include flex(flex, column, none, center);
+        .card-job{
+            height: 13%;
+            width: 80%;
+        }
+    }
+}
+//end
